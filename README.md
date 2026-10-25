@@ -41,9 +41,6 @@ Mở **Services → Android ADB** trong LuCI.
 
 ## Tải gói IPK
 
-Các gói cài đặt có trong GitHub Release `v1.0.0`:
+GitHub Release `v1.0.0` cung cấp `luci-app-android-adb_1.0.0-1_all.ipk`. Gói được đóng bằng script `ipkg-build` của OpenWrt, có kiến trúc `all` và phụ thuộc `luci-base`. Đây là gói chỉ chứa Lua/HTML/UCI, không có mã nhị phân phụ thuộc CPU.
 
-- `luci-app-android-adb_1.0.0-1_all.ipk`: định dạng ar (dùng với các bản opkg mới).
-- `luci-app-android-adb_1.0.0-1_all_legacy.ipk`: định dạng tar IPK kiểu cũ.
-
-Cả hai gói đều có kiến trúc `all` và yêu cầu `luci-base`. Nếu cả hai đều bị báo *Malformed package file*, firmware có thể yêu cầu metadata/định dạng hoặc phiên bản ABI khác; cần build bằng SDK/Buildroot đúng phiên bản OpenWrt của thiết bị.
+Nếu `opkg` vẫn báo *Malformed package file*, hãy kiểm tra file tải về chưa bị trình duyệt/ứng dụng đổi nội dung. Trên router có thể thử `gzip -t /tmp/upload.ipk`; nếu lệnh thất bại, tải lại IPK từ trang Releases.
